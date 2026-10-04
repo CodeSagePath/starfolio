@@ -9,6 +9,15 @@ export const CONFIG = {
   },
 
   // ---------------------------------------------------------------------------
+  // GitHub Integration Settings
+  // Specify your GitHub username and the specific repositories you want to showcase.
+  // ---------------------------------------------------------------------------
+  github: {
+    username: "CodeSagePath",
+    featuredRepos: [],
+  },
+
+  // ---------------------------------------------------------------------------
   // SEO Settings
   // ---------------------------------------------------------------------------
   seo: {
