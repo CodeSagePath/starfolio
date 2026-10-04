@@ -169,7 +169,9 @@ export const DATA = {
       description:
         "A white-label, multi-tenant RAG SaaS platform that turns company documents into branded, AI-powered Q&A experiences. Built hybrid retrieval with **pgvector, BM25, and Reciprocal Rank Fusion**; streamed local LLM answers; and designed an OCR, chunking, and embedding pipeline for PDF, DOCX, and spreadsheet ingestion. The system separates web and compute workloads across two VPSs connected by WireGuard.",
       technologies: ["Next.js", "Express", "PostgreSQL", "pgvector", "Redis", "BullMQ", "Docker"],
-      links: [],
+      links: [
+        { type: "Live site", href: "https://askzentic.com", icon: <Icons.globe className="size-3" /> },
+      ],
     },
     {
       title: "AnantYatra",
@@ -227,7 +229,13 @@ export const DATA = {
       description:
         "A local-first notes and to-do app for Android and iOS. The current release focuses on rapid note capture, rich text, search, reminders, theming, and backup/export in a phone-first experience, while keeping authentication infrastructure ready for a future return.",
       technologies: ["Flutter", "Dart", "Firebase", "Android", "iOS"],
-      links: [],
+      links: [
+        {
+          type: "Play Store",
+          href: "https://play.google.com/store/apps/details?id=net.codesagepath.colornote&pcampaignid=web_share",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
     },
   ] as readonly ProjectItem[],
   hackathons: [] as any[],
