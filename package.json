@@ -15,10 +15,11 @@
     "generate-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.3.0",
-    "@astrojs/mdx": "^5.0.4",
-    "@astrojs/react": "^5.0.4",
+    "@astrojs/markdown-remark": "^7.3.1",
+    "@astrojs/mdx": "^8.0.2",
+    "@astrojs/react": "^7.0.0",
     "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/vercel": "^11.0.11",
     "@fontsource-variable/geist-mono": "^5.2.7",
     "@fontsource-variable/outfit": "^5.2.8",
     "@radix-ui/react-accordion": "^1.2.12",
@@ -31,10 +32,9 @@
     "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^6.2.1",
+    "astro": "^7.3.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "github-repos-astro-loader": "^1.2.1",
     "lucide-react": "^1.14.0",
     "motion": "^12.38.0",
     "next-themes": "^0.4.6",
@@ -50,7 +50,7 @@
     "wrangler": "^4.87.0"
   },
   "overrides": {
-    "vite": "^7"
+    "vite": "^8"
   },
   "pnpm": {
     "peerDependencyRules": {

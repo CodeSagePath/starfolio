@@ -46,6 +46,7 @@ export const DATA = {
     "I build end-to-end software with a focus on thoughtful product engineering: **AI systems, mobile apps, backend services, and reusable Flutter packages**. My work ranges from a multi-tenant RAG SaaS platform and self-hosted routing infrastructure to local-first notes and developer-focused open-source libraries.",
   avatarUrl: "/picofme.png",
   ogImage: "/og_image.png",
+  resumeUrl: "https://files.codesagepath.dev/f/Rishi_Garg.pdf",
   sections: {
     about: { order: 1, enabled: true, heading: "What I build" },
     work: { order: 2, enabled: false, heading: "Work Experience", presentLabel: "Present" },
@@ -74,7 +75,7 @@ export const DATA = {
       text: "Have a product idea, an engineering problem, or an interesting collaboration in mind? Reach out by email or connect through GitHub and LinkedIn.",
     },
   },
-  photos: [],
+  photos: [] as { src: string; alt: string }[],
   skills: [
     { name: "Flutter", icon: Flutter },
     { name: "React", icon: ReactLight },
@@ -228,6 +229,6 @@ export const DATA = {
       technologies: ["Flutter", "Dart", "Firebase", "Android", "iOS"],
       links: [],
     },
-  ] satisfies readonly ProjectItem[],
+  ] as readonly ProjectItem[],
   hackathons: [] as any[],
 } as const;
