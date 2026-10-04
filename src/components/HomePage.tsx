@@ -89,12 +89,19 @@ const sectionComponents: Record<string, React.ReactNode> = {
         <BlurFade delay={BLUR_FADE_DELAY * 9}>
           <h2 className="text-xl font-bold">{DATA.sections.skills.heading}</h2>
         </BlurFade>
-        <div className="flex flex-wrap gap-2">
-          {DATA.skills.map((skill, id) => (
-            <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-              <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                {skill.icon && <skill.icon className="size-4 rounded overflow-hidden object-contain" />}
-                <span className="text-foreground text-sm font-medium">{skill.name}</span>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {DATA.skillGroups.map((group, groupIndex) => (
+            <BlurFade key={group.title} delay={BLUR_FADE_DELAY * 10 + groupIndex * 0.05}>
+              <div className="h-full rounded-xl border border-border bg-background/70 p-5">
+                <h3 className="font-semibold">{group.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{group.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span key={skill} className="rounded-lg border border-border bg-muted/40 px-2.5 py-1 text-xs font-medium text-foreground">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </BlurFade>
           ))}
