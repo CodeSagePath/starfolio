@@ -40,7 +40,7 @@ export const DATA = {
   location: "Bengaluru, IN",
   locationLink: "https://www.google.com/maps/place/bengaluru+in",
   description:
-    "Full-stack and Flutter developer building useful products, developer tools, and AI-powered systems.",
+    "Software engineer and product builder creating AI systems, mobile applications, backend services, and developer tools through CodeSagePath.",
   summary:
     "I build end-to-end software with a focus on thoughtful product engineering: **AI systems, mobile apps, backend services, and reusable Flutter packages**. My work ranges from a multi-tenant RAG SaaS platform and self-hosted routing infrastructure to local-first notes and developer-focused open-source libraries.",
   avatarUrl: "/picofme.png",
