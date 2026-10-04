@@ -2,7 +2,6 @@ import { Icons } from "@/components/icons";
 import { House } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
-import { Python } from "@/components/ui/svgs/python";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Flutter } from "@/components/ui/svgs/flutter";
 
@@ -81,8 +80,24 @@ export const DATA = {
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: ReactLight },
     { name: "Node.js", icon: Nodejs },
-    { name: "Python", icon: Python },
     { name: "Docker", icon: Docker },
+  ],
+  skillGroups: [
+    {
+      title: "Product & frontend",
+      description: "Interfaces that feel clear, fast, and useful.",
+      skills: ["React", "Next.js", "Flutter", "Tailwind CSS"],
+    },
+    {
+      title: "Backend & data",
+      description: "APIs and data systems built for real product flows.",
+      skills: ["Node.js", "Express", "PostgreSQL", "Redis"],
+    },
+    {
+      title: "AI & infrastructure",
+      description: "Self-hosted systems that stay observable and deployable.",
+      skills: ["Server (VPS) setup", "Nginx", "Cloudflare DNS", "Docker", "GitHub Actions", "RAG", "pgvector", "llama.cpp"],
+    },
   ],
   navbar: [
     { href: "/", icon: House, label: "Home" },
@@ -164,6 +179,7 @@ export const DATA = {
   projects: [
     {
       title: "AskZentic",
+      href: "https://askzentic.com",
       dates: "2026 — Present",
       active: true,
       description:
@@ -224,6 +240,7 @@ export const DATA = {
     },
     {
       title: "VividNotes",
+      href: "https://play.google.com/store/apps/details?id=net.codesagepath.colornote&pcampaignid=web_share",
       dates: "2024 — Present",
       active: true,
       description:
