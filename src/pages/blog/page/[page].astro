@@ -6,18 +6,17 @@ import { getCollection } from "astro:content";
 import { paginate } from "@/lib/pagination";
 import { CONFIG } from "@/data/config";
 
-const PAGE_SIZE = CONFIG.blog.postsPerPage;
-
 export async function getStaticPaths() {
+  const pageSize = CONFIG.blog.postsPerPage;
   const allPosts = await getCollection("blog");
-  const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
+  const totalPages = Math.ceil(allPosts.length / pageSize);
   const sortedPosts = [...allPosts].sort(
     (a, b) => Date.parse(b.data.publishedAt) - Date.parse(a.data.publishedAt),
   );
 
   return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
     const page = index + 2;
-    const { items, pagination } = paginate(sortedPosts, { page, pageSize: PAGE_SIZE });
+    const { items, pagination } = paginate(sortedPosts, { page, pageSize });
 
     return {
       params: { page: String(page) },
@@ -48,6 +47,6 @@ const pageCanonical = `${CONFIG.site.url}/blog/page/${pagination.page}`;
     posts={posts}
     allPostsCount={allPostsCount}
     pagination={pagination}
-    pageSize={PAGE_SIZE}
+    pageSize={CONFIG.blog.postsPerPage}
   />
 </Layout>
