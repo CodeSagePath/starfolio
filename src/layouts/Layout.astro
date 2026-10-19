@@ -135,6 +135,7 @@ const pageCanonical = canonicalURL ?? new URL(Astro.url.pathname, CONFIG.site.ur
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={pageCanonical} />
+    <link rel="sitemap" href="/sitemap.xml" />
 
     <!-- Robots -->
     <meta name="robots" content={CONFIG.seo.robots} />
