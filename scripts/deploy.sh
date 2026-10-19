@@ -73,25 +73,16 @@ cd "$DEPLOY_DIR"
 BUILD_DIR="$(mktemp -d "$DEPLOY_DIR/.deploy-build-XXXXXX")"
 STAGED_DIST="$(mktemp -d "$DEPLOY_DIR/.deploy-stage-XXXXXX")"
 
-if [[ -f pnpm-lock.yaml ]]; then
-  if command -v pnpm >/dev/null 2>&1; then
-    pnpm install --frozen-lockfile
-    pnpm exec astro build --outDir "$BUILD_DIR"
-  elif command -v corepack >/dev/null 2>&1; then
-    corepack pnpm install --frozen-lockfile
-    corepack pnpm exec astro build --outDir "$BUILD_DIR"
-  else
-    fail "pnpm-lock.yaml exists; install pnpm or Corepack on the server"
-  fi
-elif [[ -f package-lock.json ]]; then
-  npm ci
-  npm exec astro -- build --outDir "$BUILD_DIR"
-else
-  fail "No supported lockfile found (pnpm-lock.yaml or package-lock.json)"
-fi
+[[ -f package-lock.json ]] || fail "package-lock.json is required for npm ci"
+command -v npm >/dev/null 2>&1 || fail "npm is required to deploy this project"
+
+printf 'Installing dependencies with npm from package-lock.json\n'
+npm ci
+npm exec astro -- build --outDir "$BUILD_DIR"
 
 [[ -s "$BUILD_DIR/index.html" ]] || fail "Build output is missing index.html"
 [[ -s "$BUILD_DIR/sitemap-index.xml" ]] || fail "Build output is missing sitemap-index.xml"
+[[ -s "$BUILD_DIR/sitemap.xml" ]] || fail "Build output is missing sitemap.xml"
 "${SUDO[@]}" nginx -t
 
 cp -a "$BUILD_DIR/." "$STAGED_DIST/"

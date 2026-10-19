@@ -27,19 +27,19 @@ Featured projects include:
 
 ## SEO and search reporting
 
-The site generates page titles, descriptions, canonical links, Open Graph and X cards, structured data, an XML sitemap, and a crawlable `robots.txt`. Project pages are statically generated and include their own canonical URLs and structured data.
+The site generates page titles, descriptions, canonical links, Open Graph and X cards, structured data, and a crawlable `robots.txt`. Astro creates `sitemap-index.xml` and its numbered sitemap files; the build also publishes `/sitemap.xml` as an alias of the sitemap index.
 
 Google Search Console and Bing Webmaster Tools provide search performance reports. Those reports are reviewed in the tools’ dashboards; this site does not install server-side analytics software.
 
 ## Run locally
 
-**Requirements:** Node.js `>=22.12.0` and pnpm.
+**Requirements:** Node.js `>=22.12.0` and npm.
 
 ```bash
 git clone https://github.com/CodeSagePath/starfolio.git
 cd starfolio
-pnpm install
-pnpm dev
+npm ci
+npm run dev
 ```
 
 Open <http://localhost:4321>.
@@ -56,7 +56,7 @@ Open <http://localhost:4321>.
 Build the static site locally with:
 
 ```bash
-pnpm build
+npm run build
 ```
 
 Astro writes the production site to `dist/`. On the VPS, run the repository deployment script from the checkout:
