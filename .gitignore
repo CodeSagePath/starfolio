@@ -6,6 +6,9 @@
 
 # build output
 dist/
+.deploy-build-*/
+.deploy-stage-*/
+.deploy-backup-*/
 
 # generated types
 .astro/

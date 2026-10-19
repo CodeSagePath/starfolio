@@ -104,7 +104,7 @@ export const CONFIG = {
     twitterHandle: "@yourhandle",
   },
   seo: {
-    titleTemplate: "%s | %n",      // %s = page title, %n = your name
+    titleTemplate: "%s | CodeSagePath", // %s = page title
     twitterCard: "summary_large_image",
     robots: "index, follow",
   },

@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { House } from "lucide-react";
+import { BookOpen, House } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
 import { Docker } from "@/components/ui/svgs/docker";
@@ -101,6 +101,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: House, label: "Home" },
+    { href: "/blog", icon: BookOpen, label: "Blog" },
   ],
   contact: {
     email: "rishigarg185@gmail.com",

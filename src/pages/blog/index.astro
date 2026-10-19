@@ -2,21 +2,18 @@
 import Layout from "@/layouts/Layout.astro";
 import BlogList from "@/components/BlogList";
 import { getCollection } from "astro:content";
-import { paginate, normalizePage } from "@/lib/pagination";
+import { paginate } from "@/lib/pagination";
+import { CONFIG } from "@/data/config";
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = CONFIG.blog.postsPerPage;
 
 const allPosts = await getCollection("blog");
 const sortedPosts = [...allPosts].sort((a, b) => {
-  if (new Date(a.data.publishedAt) > new Date(b.data.publishedAt)) return -1;
-  return 1;
+  return Date.parse(b.data.publishedAt) - Date.parse(a.data.publishedAt);
 });
 
-const pageParam = Astro.url.searchParams.get("page") ?? undefined;
-const totalPages = Math.ceil(sortedPosts.length / PAGE_SIZE);
-const currentPage = normalizePage(pageParam, totalPages);
 const { items: paginatedPosts, pagination } = paginate(sortedPosts, {
-  page: currentPage,
+  page: 1,
   pageSize: PAGE_SIZE,
 });
 
@@ -27,7 +24,11 @@ const posts = paginatedPosts.map((post) => ({
 }));
 ---
 
-<Layout title="Blog" description="Thoughts on software development, life, and more.">
+<Layout
+  title="Blog"
+  description="Software engineering articles and notes from CodeSagePath."
+  canonicalURL={`${CONFIG.site.url}/blog`}
+>
   <BlogList
     client:load
     posts={posts}

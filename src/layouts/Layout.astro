@@ -16,12 +16,12 @@ const {
   title,
   description = DATA.description,
   image,
-  canonicalURL = Astro.url.href,
+  canonicalURL,
 } = Astro.props;
 
 const pageTitle = title
-  ? CONFIG.seo.titleTemplate.replace("%s", title).replace("%n", DATA.name)
-  : DATA.name;
+  ? CONFIG.seo.titleTemplate.replace("%s", title)
+  : CONFIG.seo.homeTitle;
 const ogImage = image
   ? image.startsWith("http")
     ? image
@@ -30,6 +30,27 @@ const ogImage = image
 
 const { light, dark, radius } = CONFIG.theme;
 const { baseFontSize } = CONFIG.typography;
+const isHomePage = Astro.url.pathname === "/";
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: DATA.name,
+  url: DATA.url,
+  image: `${CONFIG.site.url}${DATA.avatarUrl}`,
+  jobTitle: "Software Engineer",
+  sameAs: Object.values(DATA.contact.social)
+    .map((social) => social.url)
+    .filter((url) => url.startsWith("http")),
+};
+const siteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: CONFIG.site.name,
+  alternateName: CONFIG.site.alternateName,
+  url: `${CONFIG.site.url}/`,
+};
+const jsonLd = JSON.stringify([siteJsonLd, personJsonLd]).replace(/</g, "\\u003c");
+const pageCanonical = canonicalURL ?? new URL(Astro.url.pathname, CONFIG.site.url).href;
 ---
 
 <html
@@ -113,7 +134,7 @@ const { baseFontSize } = CONFIG.typography;
     <!-- Primary meta -->
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    <link rel="canonical" href={pageCanonical} />
 
     <!-- Robots -->
     <meta name="robots" content={CONFIG.seo.robots} />
@@ -124,10 +145,10 @@ const { baseFontSize } = CONFIG.typography;
 
     <!-- OpenGraph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:url" content={pageCanonical} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content={DATA.name} />
+    <meta property="og:site_name" content={CONFIG.site.name} />
     <meta property="og:locale" content={CONFIG.site.locale} />
     <meta property="og:image" content={ogImage} />
 
@@ -136,6 +157,8 @@ const { baseFontSize } = CONFIG.typography;
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:site" content={CONFIG.site.twitterHandle} />
+    {isHomePage && <script is:inline type="application/ld+json" set:html={jsonLd} />}
   </head>
   <body class="min-h-screen bg-background font-sans antialiased relative">
     <!-- FlickeringGrid header background - matches template exactly -->
