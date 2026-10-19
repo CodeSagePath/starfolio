@@ -67,7 +67,7 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 git -C "$DEPLOY_DIR" fetch --prune "$GIT_REMOTE" "$DEPLOY_BRANCH"
-git -C "$DEPLOY_DIR" pull --ff-only "$GIT_REMOTE" "$DEPLOY_BRANCH"
+git -C "$DEPLOY_DIR" merge --ff-only FETCH_HEAD
 
 cd "$DEPLOY_DIR"
 BUILD_DIR="$(mktemp -d "$DEPLOY_DIR/.deploy-build-XXXXXX")"
