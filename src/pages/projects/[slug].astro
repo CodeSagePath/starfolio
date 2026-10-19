@@ -1,0 +1,119 @@
+---
+export const prerender = true;
+import Layout from "@/layouts/Layout.astro";
+import { DATA, type ProjectItem } from "@/data/resume";
+import { slugify } from "@/lib/utils";
+import { CONFIG } from "@/data/config";
+import Markdown from "react-markdown";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+
+type ProjectPageData = Omit<ProjectItem, "links"> & {
+  links: Array<Pick<ProjectItem["links"][number], "type" | "href">>;
+};
+
+export async function getStaticPaths() {
+  return DATA.projects.map((project) => ({
+    params: { slug: slugify(project.title) },
+    props: {
+      project: {
+        ...project,
+        links: project.links.map(({ type, href }) => ({ type, href })),
+      },
+    },
+  }));
+}
+
+const { project } = Astro.props as { project: ProjectPageData };
+const projectSlug = slugify(project.title);
+const pageUrl = `${CONFIG.site.url}/projects/${projectSlug}`;
+const projectDescription = project.description.replace(/\*\*/g, "").replace(/`/g, "");
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: project.title,
+  description: projectDescription,
+  url: pageUrl,
+  author: { "@type": "Person", name: DATA.name, url: DATA.url },
+  keywords: project.technologies.join(", "),
+}).replace(/</g, "\\u003c");
+---
+
+<Layout
+  title={`${project.title} project`}
+  description={projectDescription}
+  canonicalURL={pageUrl}
+>
+  <article class="mx-auto max-w-4xl">
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
+    <a
+      href="/#projects"
+      class="mb-8 inline-flex items-center gap-1 rounded-lg border border-border px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
+    >
+      <ArrowLeft className="size-4" aria-hidden />
+      All projects
+    </a>
+    <header class="mb-8">
+      <p class="mb-3 text-sm font-medium text-primary">
+        Built by {DATA.name} at <a href={CONFIG.site.url} class="underline underline-offset-4 hover:text-foreground">CodeSagePath</a>
+      </p>
+      <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{project.title}</h1>
+      <p class="mt-2 text-sm text-muted-foreground">{project.dates}</p>
+    </header>
+
+    {project.image && <img src={project.image} alt={`${project.title} project`} class="mb-8 max-h-[32rem] w-full rounded-xl border border-border object-cover" />}
+    {project.video && <video src={project.video} controls playsinline class="mb-8 max-h-[32rem] w-full rounded-xl border border-border" />}
+
+    <section aria-labelledby="project-overview">
+      <h2 id="project-overview" class="mb-4 text-xl font-semibold">Project overview</h2>
+      <div class="prose max-w-none text-pretty leading-relaxed text-muted-foreground dark:prose-invert">
+        <Markdown>{project.description}</Markdown>
+      </div>
+    </section>
+
+    {project.caseStudy && (
+      <div class="mt-10 space-y-8 border-t border-border pt-8">
+        <section aria-labelledby="project-challenge">
+          <h2 id="project-challenge" class="mb-3 text-xl font-semibold">Engineering challenge</h2>
+          <p class="leading-relaxed text-muted-foreground">{project.caseStudy.challenge}</p>
+        </section>
+
+        <section aria-labelledby="project-approach">
+          <h2 id="project-approach" class="mb-3 text-xl font-semibold">Implementation decisions</h2>
+          <ul class="list-disc space-y-2 pl-5 leading-relaxed text-muted-foreground">
+            {project.caseStudy.approach.map((decision) => <li>{decision}</li>)}
+          </ul>
+        </section>
+
+        <section aria-labelledby="project-outcome">
+          <h2 id="project-outcome" class="mb-3 text-xl font-semibold">What the project delivers</h2>
+          <p class="leading-relaxed text-muted-foreground">{project.caseStudy.outcome}</p>
+        </section>
+      </div>
+    )}
+
+    <section class="mt-8" aria-labelledby="project-technology">
+      <h2 id="project-technology" class="mb-3 text-xl font-semibold">Technologies</h2>
+      <ul class="flex flex-wrap gap-2">
+        {project.technologies.map((technology) => (
+          <li class="rounded-lg border border-border bg-muted/40 px-3 py-1 text-sm">{technology}</li>
+        ))}
+      </ul>
+    </section>
+
+    {project.links.length > 0 && (
+      <nav class="mt-8 flex flex-wrap gap-3" aria-label={`${project.title} links`}>
+        {project.links.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            {link.type}
+            <ArrowUpRight className="size-4" aria-hidden />
+          </a>
+        ))}
+      </nav>
+    )}
+  </article>
+</Layout>

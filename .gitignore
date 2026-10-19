@@ -6,6 +6,9 @@
 
 # build output
 dist/
+.deploy-build-*/
+.deploy-stage-*/
+.deploy-backup-*/
 
 # generated types
 .astro/
@@ -25,6 +28,9 @@ pnpm-debug.log*
 .env.production
 .env.local
 .env.*.local
+
+# local SEO notes, exports, and monthly search performance snapshots
+/docs/seo/
 
 # macOS-specific files
 .DS_Store

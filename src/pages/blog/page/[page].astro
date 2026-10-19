@@ -1,0 +1,53 @@
+---
+export const prerender = true;
+import Layout from "@/layouts/Layout.astro";
+import BlogList from "@/components/BlogList";
+import { getCollection } from "astro:content";
+import { paginate } from "@/lib/pagination";
+import { CONFIG } from "@/data/config";
+
+const PAGE_SIZE = CONFIG.blog.postsPerPage;
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
+  const sortedPosts = [...allPosts].sort(
+    (a, b) => Date.parse(b.data.publishedAt) - Date.parse(a.data.publishedAt),
+  );
+
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
+    const page = index + 2;
+    const { items, pagination } = paginate(sortedPosts, { page, pageSize: PAGE_SIZE });
+
+    return {
+      params: { page: String(page) },
+      props: {
+        posts: items.map((post) => ({
+          id: post.id,
+          title: post.data.title,
+          publishedAt: post.data.publishedAt,
+        })),
+        allPostsCount: allPosts.length,
+        pagination,
+      },
+    };
+  });
+}
+
+const { posts, allPostsCount, pagination } = Astro.props;
+const pageCanonical = `${CONFIG.site.url}/blog/page/${pagination.page}`;
+---
+
+<Layout
+  title={`Blog — Page ${pagination.page}`}
+  description="Browse software engineering articles and notes from CodeSagePath."
+  canonicalURL={pageCanonical}
+>
+  <BlogList
+    client:load
+    posts={posts}
+    allPostsCount={allPostsCount}
+    pagination={pagination}
+    pageSize={PAGE_SIZE}
+  />
+</Layout>
