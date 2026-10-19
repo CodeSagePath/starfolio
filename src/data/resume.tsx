@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { House } from "lucide-react";
+import { BookOpen, House } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
 import { Docker } from "@/components/ui/svgs/docker";
@@ -23,6 +23,11 @@ export interface ProjectItem {
   dates: string;
   active: boolean;
   description: string;
+  caseStudy?: {
+    challenge: string;
+    approach: readonly string[];
+    outcome: string;
+  };
   technologies: readonly string[];
   links: readonly {
     type: string;
@@ -101,6 +106,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: House, label: "Home" },
+    { href: "/blog", icon: BookOpen, label: "Blog" },
   ],
   contact: {
     email: "rishigarg185@gmail.com",
@@ -184,6 +190,17 @@ export const DATA = {
       active: true,
       description:
         "A white-label, multi-tenant RAG SaaS platform that turns company documents into branded, AI-powered Q&A experiences. Built hybrid retrieval with **pgvector, BM25, and Reciprocal Rank Fusion**; streamed local LLM answers; and designed an OCR, chunking, and embedding pipeline for PDF, DOCX, and spreadsheet ingestion. The system separates web and compute workloads across two VPSs connected by WireGuard.",
+      caseStudy: {
+        challenge:
+          "Build a document question-answering workflow that can handle different file formats and present a branded experience for separate tenants.",
+        approach: [
+          "Process PDF, DOCX, and spreadsheet uploads through OCR, chunking, and embedding stages.",
+          "Combine pgvector semantic retrieval with BM25 keyword retrieval, then merge results with Reciprocal Rank Fusion.",
+          "Stream answers from a locally hosted language model and keep web and compute workloads on separate VPSs connected by WireGuard.",
+        ],
+        outcome:
+          "The implemented platform connects document ingestion, hybrid retrieval, and streamed answers in a multi-tenant Q&A product.",
+      },
       technologies: ["Next.js", "Express", "PostgreSQL", "pgvector", "Redis", "BullMQ", "Docker"],
       links: [
         { type: "Live site", href: "https://askzentic.com", icon: <Icons.globe className="size-3" /> },
@@ -196,6 +213,17 @@ export const DATA = {
       active: true,
       description:
         "A map-first route planner for complex road trips without waypoint limits. It supports multi-vehicle routing, drag-and-drop itineraries, scheduling, rest-stop suggestions, trip sharing, live check-ins, and SVG/PDF route exports. I paired a React interface with a Node/Prisma API and a self-hosted Valhalla routing engine in Docker.",
+      caseStudy: {
+        challenge:
+          "Plan multi-stop road trips with flexible waypoint ordering and different transport profiles, while keeping the route visible in a map-first interface.",
+        approach: [
+          "Use OpenStreetMap data with a self-hosted Valhalla routing engine running in Docker.",
+          "Let travelers reorder stops with drag-and-drop and recalculate routes for driving, motorcycles, cycling, walking, and trucks.",
+          "Pair the React and TypeScript client with a Node.js and Prisma API; the repository documents saved routes, JWT authentication, and a SQLite database.",
+        ],
+        outcome:
+          "The project brings itinerary editing, multiple transport profiles, and self-hosted routing together in one documented application. Its repository includes setup and VPS deployment scripts.",
+      },
       technologies: ["React", "TypeScript", "Express", "Prisma", "OpenStreetMap", "Valhalla", "Docker"],
       links: [
         { type: "Live site", href: "https://anantyatra.codesagepath.dev/", icon: <Icons.globe className="size-3" /> },
@@ -209,6 +237,17 @@ export const DATA = {
       active: true,
       description:
         "A Flutter package for on-device speech-to-text powered by **whisper.cpp**. It provides offline transcription after model download, language detection, optional translation, timestamped segments, download progress, and typed error handling across Android, iOS beta, and experimental macOS support.",
+      caseStudy: {
+        challenge:
+          "Expose local Whisper transcription through a Flutter package while handling model downloads, platform-specific native code, and audio-input errors clearly.",
+        approach: [
+          "Run Whisper through whisper.cpp so transcription can happen locally after a model has been downloaded.",
+          "Provide a small transcription API with language selection, optional translation, timestamped segments, and model-download progress.",
+          "Use typed exceptions for model, audio, transcription, and permission failures. The documented native core accepts 16 kHz, 16-bit PCM WAV audio.",
+        ],
+        outcome:
+          "The repository documents Android as working, iOS as beta, and macOS as experimental. It provides a stable API for transcription and manual model downloads.",
+      },
       technologies: ["Flutter", "Dart", "C++", "whisper.cpp", "Android", "iOS"],
       links: [
         { type: "GitHub", href: "https://github.com/CodeSagePath/whisper_kit", icon: <Icons.github className="size-3" /> },

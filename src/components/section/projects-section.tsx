@@ -4,6 +4,7 @@ import { ProjectCard } from "@/components/project-card";
 import { DATA } from "@/data/resume";
 import { fetchFeaturedGitHubRepos, type GitHubProject } from "@/lib/github";
 import { Icons } from "@/components/icons";
+import { slugify } from "@/lib/utils";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -25,6 +26,7 @@ export default function ProjectsSection() {
         image: project.image,
         video: project.video,
         links: project.links,
+        detailsHref: `/projects/${slugify(project.title)}`,
     }));
 
     const formattedGitHubProjects = gitHubProjects.map((gh) => ({
@@ -35,6 +37,7 @@ export default function ProjectsSection() {
         technologies: gh.technologies,
         image: gh.image,
         video: gh.video,
+        detailsHref: undefined,
         links: gh.links.map((l) => ({
             type: l.type,
             href: l.href,
@@ -83,6 +86,7 @@ export default function ProjectsSection() {
                                 image={project.image}
                                 video={project.video}
                                 links={project.links}
+                                detailsHref={project.detailsHref}
                             />
                         </BlurFade>
                     ))}

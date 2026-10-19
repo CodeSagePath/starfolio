@@ -83,7 +83,7 @@ export default function BlogList({ posts, allPostsCount, pagination, pageSize }:
                 <div className="flex gap-2 sm:justify-end">
                   {pagination.hasPreviousPage ? (
                     <a
-                      href={`/blog?page=${pagination.page - 1}`}
+                      href={pagination.page === 2 ? "/blog" : `/blog/page/${pagination.page - 1}`}
                       className="h-8 w-fit px-2 flex items-center justify-center text-sm border border-border rounded-lg hover:bg-accent/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     >
                       Previous
@@ -95,7 +95,7 @@ export default function BlogList({ posts, allPostsCount, pagination, pageSize }:
                   )}
                   {pagination.hasNextPage ? (
                     <a
-                      href={`/blog?page=${pagination.page + 1}`}
+                      href={`/blog/page/${pagination.page + 1}`}
                       className="h-8 w-fit px-2 flex items-center justify-center text-sm border border-border rounded-lg hover:bg-accent/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     >
                       Next

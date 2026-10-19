@@ -51,6 +51,7 @@ interface Props {
   tags: readonly string[];
   image?: string;
   video?: string;
+  detailsHref?: string;
   links?: readonly {
     icon: React.ReactNode;
     type: string;
@@ -67,6 +68,7 @@ export function ProjectCard({
   tags,
   image,
   video,
+  detailsHref,
   links,
   className,
 }: Props) {
@@ -134,6 +136,15 @@ export function ProjectCard({
         <div className="text-xs flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
           <Markdown>{description}</Markdown>
         </div>
+        {detailsHref && (
+          <a
+            href={detailsHref}
+            className="inline-flex w-fit items-center gap-1 text-sm font-medium text-primary hover:underline underline-offset-4"
+          >
+            Project details
+            <ArrowUpRight className="size-3.5" aria-hidden />
+          </a>
+        )}
         {tags && tags.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-auto">
             {tags.map((tag) => (

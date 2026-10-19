@@ -4,6 +4,8 @@ export const CONFIG = {
   // ---------------------------------------------------------------------------
   site: {
     url: "https://codesagepath.dev",
+    name: "CodeSagePath",
+    alternateName: "codesagepath.dev",
     locale: "en_US",
     twitterHandle: "@rishi__garg",
   },
@@ -21,7 +23,8 @@ export const CONFIG = {
   // SEO Settings
   // ---------------------------------------------------------------------------
   seo: {
-    titleTemplate: "%s | %n", // %s = page title, %n = DATA.name
+    homeTitle: "Rishi Garg — Software Engineer building AI, Flutter & backend products",
+    titleTemplate: "%s | CodeSagePath", // %s = page title
     twitterCard: "summary_large_image" as const,
     robots: "index, follow",
   },
