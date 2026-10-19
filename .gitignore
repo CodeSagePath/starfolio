@@ -29,6 +29,9 @@ pnpm-debug.log*
 .env.local
 .env.*.local
 
+# local SEO notes, exports, and monthly search performance snapshots
+/docs/seo/
+
 # macOS-specific files
 .DS_Store
 

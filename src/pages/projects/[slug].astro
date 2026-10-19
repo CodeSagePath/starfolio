@@ -53,7 +53,9 @@ const jsonLd = JSON.stringify({
       All projects
     </a>
     <header class="mb-8">
-      <p class="mb-3 text-sm font-medium text-primary">CodeSagePath project</p>
+      <p class="mb-3 text-sm font-medium text-primary">
+        Built by {DATA.name} at <a href={CONFIG.site.url} class="underline underline-offset-4 hover:text-foreground">CodeSagePath</a>
+      </p>
       <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{project.title}</h1>
       <p class="mt-2 text-sm text-muted-foreground">{project.dates}</p>
     </header>
@@ -67,6 +69,27 @@ const jsonLd = JSON.stringify({
         <Markdown>{project.description}</Markdown>
       </div>
     </section>
+
+    {project.caseStudy && (
+      <div class="mt-10 space-y-8 border-t border-border pt-8">
+        <section aria-labelledby="project-challenge">
+          <h2 id="project-challenge" class="mb-3 text-xl font-semibold">Engineering challenge</h2>
+          <p class="leading-relaxed text-muted-foreground">{project.caseStudy.challenge}</p>
+        </section>
+
+        <section aria-labelledby="project-approach">
+          <h2 id="project-approach" class="mb-3 text-xl font-semibold">Implementation decisions</h2>
+          <ul class="list-disc space-y-2 pl-5 leading-relaxed text-muted-foreground">
+            {project.caseStudy.approach.map((decision) => <li>{decision}</li>)}
+          </ul>
+        </section>
+
+        <section aria-labelledby="project-outcome">
+          <h2 id="project-outcome" class="mb-3 text-xl font-semibold">What the project delivers</h2>
+          <p class="leading-relaxed text-muted-foreground">{project.caseStudy.outcome}</p>
+        </section>
+      </div>
+    )}
 
     <section class="mt-8" aria-labelledby="project-technology">
       <h2 id="project-technology" class="mb-3 text-xl font-semibold">Technologies</h2>
