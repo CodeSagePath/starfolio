@@ -38,6 +38,16 @@ export interface ProjectItem {
   video?: string;
 }
 
+interface Photo {
+  src: string;
+  alt: string;
+}
+
+interface PhotoCollection {
+  title: string;
+  photos: readonly Photo[];
+}
+
 export const DATA = {
   name: "Rishi Garg",
   initials: "RG",
@@ -69,8 +79,8 @@ export const DATA = {
       text: "During my time in university, I attended {count}+ hackathons. People from around the country would come together and build incredible things in 2-3 days. It was eye-opening to see the endless possibilities brought to life by a group of motivated and passionate individuals.",
     },
     photos: {
-      order: 6, enabled: false,
-      heading: "My Recent Travels",
+      order: 6, enabled: true,
+      heading: "Things I notice",
     },
     contact: {
       order: 8, enabled: true,
@@ -79,7 +89,28 @@ export const DATA = {
       text: "Have a product idea, an engineering problem, or an interesting collaboration in mind? Reach out by email or connect through GitHub and LinkedIn.",
     },
   },
-  photos: [] as { src: string; alt: string }[],
+  photoCollections: [
+    {
+      title: "Lalbagh in bloom",
+      photos: [
+        { src: "/photos/lalbagh/lalbagh-01.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-02.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-03.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-04.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-05.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-06.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-07.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-08.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-09.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-10.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-11.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-12.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-13.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-14.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh/lalbagh-15.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+      ],
+    },
+  ] as const satisfies readonly PhotoCollection[],
   skills: [
     { name: "Flutter", icon: Flutter },
     { name: "React", icon: ReactLight },
