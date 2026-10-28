@@ -8,6 +8,7 @@ import ContactSection from "@/components/section/contact-section";
 import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import PhotosSection from "@/components/section/photos-section";
+import ReadingHighlight from "@/components/section/reading-highlight";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 
@@ -124,6 +125,7 @@ const sectionComponents: Record<string, React.ReactNode> = {
     </section>
   ),
   photos: <PhotosSection />,
+  reading: <ReadingHighlight />,
   contact: (
     <section id="contact">
       <BlurFade delay={BLUR_FADE_DELAY * 16}>
@@ -156,6 +158,9 @@ export default function HomePage() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
+              <p className="max-w-[600px] text-sm leading-relaxed text-muted-foreground">
+                Outside software, I enjoy slowing down to photograph the flowers and small details I notice around Bengaluru.
+              </p>
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
                 <a
                   href={DATA.resumeUrl}

@@ -1,5 +1,6 @@
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { DATA } from "@/data/resume";
+import { ArrowUpRight } from "lucide-react";
 
 export default function ContactSection() {
   return (
@@ -25,6 +26,15 @@ export default function ContactSection() {
         <p className="mx-auto max-w-lg text-muted-foreground text-balance">
           {DATA.sections.contact.text}
         </p>
+        <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
+          <a href={`mailto:${DATA.contact.email}`} className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+            Email me <ArrowUpRight className="size-4" aria-hidden />
+          </a>
+          {(["GitHub", "LinkedIn"] as const).map((name) => {
+            const social = DATA.contact.social[name];
+            return <a key={name} href={social.url} target="_blank" rel="noopener noreferrer" className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted">{name}</a>;
+          })}
+        </div>
       </div>
     </div>
   );

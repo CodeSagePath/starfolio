@@ -23,7 +23,7 @@ const formatDate = new Intl.DateTimeFormat("en", {
     </header>
     <div class="columns-2 gap-3 sm:columns-3 sm:gap-4">
       {collection.photos.map((photo, index) => (
-        <a href={photo.src} target="_blank" rel="noreferrer" aria-label={`Open full-size photo ${index + 1}`} class="mb-3 block break-inside-avoid overflow-hidden rounded-xl bg-muted sm:mb-4">
+        <a href={photo.fullSizeSrc} target="_blank" rel="noreferrer" aria-label={`Open full-size photo ${index + 1}`} class="mb-3 block break-inside-avoid overflow-hidden rounded-xl bg-muted sm:mb-4">
           <img src={photo.src} alt={photo.alt} loading={index < 3 ? "eager" : "lazy"} decoding="async" class="h-auto w-full transition-opacity hover:opacity-90" />
         </a>
       ))}

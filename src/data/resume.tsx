@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { BookOpen, House, Images } from "lucide-react";
+import { House, Images } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
 import { Docker } from "@/components/ui/svgs/docker";
@@ -46,6 +46,7 @@ export interface ProjectItem {
 
 export interface Photo {
   src: string;
+  fullSizeSrc: string;
   alt: string;
 }
 
@@ -74,7 +75,7 @@ export const DATA = {
   sections: {
     about: { order: 1, enabled: true, heading: "What I build" },
     work: { order: 2, enabled: false, heading: "Work Experience", presentLabel: "Present" },
-    education: { order: 4, enabled: true, heading: "Education" },
+    education: { order: 5, enabled: true, heading: "Education" },
     skills: { order: 3, enabled: true, heading: "Core toolkit" },
     projects: {
       order: 2, enabled: true,
@@ -89,14 +90,15 @@ export const DATA = {
       text: "During my time in university, I attended {count}+ hackathons. People from around the country would come together and build incredible things in 2-3 days. It was eye-opening to see the endless possibilities brought to life by a group of motivated and passionate individuals.",
     },
     photos: {
-      order: 6, enabled: true,
+      order: 4, enabled: true,
       heading: "Photography",
     },
+    reading: { order: 7, enabled: true, heading: "Highlight of the day" },
     contact: {
       order: 8, enabled: true,
       label: "Contact",
       heading: "Get in Touch",
-      text: "Have a product idea, an engineering problem, or an interesting collaboration in mind? Reach out by email or connect through GitHub and LinkedIn.",
+      text: "Have a role, product idea, open-source question, or interesting collaboration in mind? I’m happy to talk software and explore what we could build together.",
     },
   },
   photoCollections: [
@@ -105,23 +107,48 @@ export const DATA = {
       title: "Lalbagh in bloom",
       location: "Lalbagh Botanical Garden, Bengaluru",
       date: "2026-10-24",
-      coverImage: "/photos/lalbagh-01.jpg",
+      coverImage: "/photos/optimized/lalbagh-01.webp",
       photos: [
-        { src: "/photos/lalbagh-01.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-02.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-03.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-04.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-05.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-06.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-07.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-08.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-09.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-10.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-11.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-12.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-13.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-14.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh-15.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-01.webp", fullSizeSrc: "/photos/lalbagh-01.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-02.webp", fullSizeSrc: "/photos/lalbagh-02.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-03.webp", fullSizeSrc: "/photos/lalbagh-03.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-04.webp", fullSizeSrc: "/photos/lalbagh-04.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-05.webp", fullSizeSrc: "/photos/lalbagh-05.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-06.webp", fullSizeSrc: "/photos/lalbagh-06.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-07.webp", fullSizeSrc: "/photos/lalbagh-07.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-08.webp", fullSizeSrc: "/photos/lalbagh-08.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-09.webp", fullSizeSrc: "/photos/lalbagh-09.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-10.webp", fullSizeSrc: "/photos/lalbagh-10.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-11.webp", fullSizeSrc: "/photos/lalbagh-11.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-12.webp", fullSizeSrc: "/photos/lalbagh-12.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-13.webp", fullSizeSrc: "/photos/lalbagh-13.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-14.webp", fullSizeSrc: "/photos/lalbagh-14.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-15.webp", fullSizeSrc: "/photos/lalbagh-15.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-16.webp", fullSizeSrc: "/photos/lalbagh-16.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-17.webp", fullSizeSrc: "/photos/lalbagh-17.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-18.webp", fullSizeSrc: "/photos/lalbagh-18.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-19.webp", fullSizeSrc: "/photos/lalbagh-19.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-20.webp", fullSizeSrc: "/photos/lalbagh-20.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-21.webp", fullSizeSrc: "/photos/lalbagh-21.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-22.webp", fullSizeSrc: "/photos/lalbagh-22.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-23.webp", fullSizeSrc: "/photos/lalbagh-23.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-24.webp", fullSizeSrc: "/photos/lalbagh-24.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-25.webp", fullSizeSrc: "/photos/lalbagh-25.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-26.webp", fullSizeSrc: "/photos/lalbagh-26.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-27.webp", fullSizeSrc: "/photos/lalbagh-27.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-28.webp", fullSizeSrc: "/photos/lalbagh-28.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-29.webp", fullSizeSrc: "/photos/lalbagh-29.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-30.webp", fullSizeSrc: "/photos/lalbagh-30.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-31.webp", fullSizeSrc: "/photos/lalbagh-31.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-32.webp", fullSizeSrc: "/photos/lalbagh-32.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-33.webp", fullSizeSrc: "/photos/lalbagh-33.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-34.webp", fullSizeSrc: "/photos/lalbagh-34.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-35.webp", fullSizeSrc: "/photos/lalbagh-35.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-36.webp", fullSizeSrc: "/photos/lalbagh-36.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-37.webp", fullSizeSrc: "/photos/lalbagh-37.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-38.webp", fullSizeSrc: "/photos/lalbagh-38.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-39.webp", fullSizeSrc: "/photos/lalbagh-39.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/optimized/lalbagh-40.webp", fullSizeSrc: "/photos/lalbagh-40.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
       ],
     },
   ] as const satisfies readonly PhotoCollection[],
@@ -152,7 +179,6 @@ export const DATA = {
   navbar: [
     { href: "/", icon: House, label: "Home" },
     { href: "/photography/", icon: Images, label: "Photography" },
-    { href: "/blog", icon: BookOpen, label: "Blog" },
   ],
   contact: {
     email: "rishigarg185@gmail.com",
