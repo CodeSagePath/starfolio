@@ -159,7 +159,7 @@ export default function HomePage() {
                 text={DATA.description}
               />
               <p className="max-w-[600px] text-sm leading-relaxed text-muted-foreground">
-                Outside software, I enjoy slowing down to photograph the flowers and small details I notice around Bengaluru.
+                Outside work, I enjoy photographing flowers and small details around Bengaluru.
               </p>
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
                 <a

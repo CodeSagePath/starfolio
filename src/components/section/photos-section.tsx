@@ -34,6 +34,7 @@ export default function PhotosSection() {
             <a
               key={collection.slug}
               href={`/photography/${collection.slug}/`}
+              onContextMenu={(event) => event.preventDefault()}
               className="group min-w-[min(82vw,22rem)] snap-start overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-primary/40 sm:min-w-[20rem]"
             >
               <img
@@ -41,7 +42,9 @@ export default function PhotosSection() {
                 alt={`${collection.title} photo collection cover`}
                 loading="lazy"
                 decoding="async"
-                className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                draggable={false}
+                onDragStart={(event) => event.preventDefault()}
+                className="image-gallery-image h-52 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
               />
               <div className="flex items-start justify-between gap-3 p-4">
                 <div>

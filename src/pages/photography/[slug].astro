@@ -2,6 +2,7 @@
 export const prerender = true;
 import Layout from "@/layouts/Layout.astro";
 import { DATA } from "@/data/resume";
+import ImageGallery from "@/components/section/image-gallery";
 
 export function getStaticPaths() {
   return DATA.photoCollections.map((collection) => ({ params: { slug: collection.slug }, props: { collection } }));
@@ -21,12 +22,6 @@ const formatDate = new Intl.DateTimeFormat("en", {
       <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{collection.title}</h1>
       <p class="mt-3 text-muted-foreground">{collection.photos.length} photographs</p>
     </header>
-    <div class="columns-2 gap-3 sm:columns-3 sm:gap-4">
-      {collection.photos.map((photo, index) => (
-        <a href={photo.fullSizeSrc} target="_blank" rel="noreferrer" aria-label={`Open full-size photo ${index + 1}`} class="mb-3 block break-inside-avoid overflow-hidden rounded-xl bg-muted sm:mb-4">
-          <img src={photo.src} alt={photo.alt} loading={index < 3 ? "eager" : "lazy"} decoding="async" class="h-auto w-full transition-opacity hover:opacity-90" />
-        </a>
-      ))}
-    </div>
+    <ImageGallery images={collection.photos} label={`${collection.title} gallery`} client:load />
   </main>
 </Layout>

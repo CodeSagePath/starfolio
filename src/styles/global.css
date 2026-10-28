@@ -124,6 +124,14 @@
     @apply bg-background text-foreground;
   }
 
+  .font-devanagari {
+    font-family: 'Noto Sans Devanagari', 'Droid Sans Devanagari', 'Nirmala UI', 'Mangal', sans-serif;
+  }
+
+  .image-gallery-image {
+    -webkit-touch-callout: none;
+  }
+
   /* Shiki dual theme support */
   .shiki,
   .shiki span {

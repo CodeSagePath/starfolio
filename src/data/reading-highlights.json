@@ -1,27 +1,32 @@
 [
-  {
-    "original": "In both situations, you’ve spent twenty-two dollars on the tickets. The money is gone. But if you leave, at least you get your time back. Behavioral economist Amos Tversky used to go to the movies, and if he didn’t enjoy the first five minutes of the film, he’d leave. “They’ve already taken my money,” he explained. “Should I give them my time, too?”",
-    "language": "EN",
-    "translation": "",
-    "work": "How to Not Die Alone",
-    "creator": "Logan Ury",
-    "location": "Sunk-cost fallacy passage"
-  },
-  {
-    "original": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन। मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥",
-    "language": "SA",
-    "translation": "You have a right to action alone, never to its fruits. Do not be motivated by the fruits of action, nor be attached to inaction.",
-    "work": "Bhagavad Gita",
-    "creator": "Krishna to Arjuna",
-    "translator": "Swami Swarupananda (1909)",
-    "location": "Chapter 2, verse 47"
-  },
-  {
-    "original": "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    "language": "EN",
-    "translation": "",
-    "work": "Pride and Prejudice",
-    "creator": "Jane Austen",
-    "location": "Chapter 1"
-  }
+  {"hindi":"शास्त्रों का अध्ययन सही और गलत का विवेक देता है।","english":"Study helps us distinguish what is worth following from what is not.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 1, verse 2","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-first-chapter.html"},
+  {"hindi":"लोगों के हित के लिए कही गई बात सही दृष्टि देना चाहती है।","english":"Advice offered for the common good can help us see things in perspective.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 1, verse 3","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-first-chapter.html"},
+  {"hindi":"कठिन समय के लिए अपनी संपत्ति बचाकर रखें।","english":"Keep something in reserve for difficult times.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 1, verse 7","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-first-chapter.html"},
+  {"hindi":"ऐसी जगह रहें जहाँ सम्मान, आजीविका, मित्रता और सीखने के अवसर हों।","english":"Choose a place where you can find respect, work, friendship, and room to learn.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 1, verse 8","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-first-chapter.html"},
+  {"hindi":"मित्र की पहचान विपत्ति में होती है।","english":"Adversity reveals the friend who stays beside you.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 1, verse 12","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-first-chapter.html"},
+  {"hindi":"क्षणिक लाभ के लिए स्थायी मूल्य न खोएँ।","english":"Do not trade what endures for what is fleeting.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 1, verse 13","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-first-chapter.html"},
+  {"hindi":"मित्रता विश्वास और मन की शांति पर टिकती है।","english":"Friendship rests on trust and a sense of ease with one another.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 2, verse 4","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-second-chapter.html"},
+  {"hindi":"सामने मधुर बोलने और पीछे हानि पहुँचाने वाले से सावधान रहें।","english":"Be wary of someone whose kind words conceal harmful intent.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 2, verse 5","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-second-chapter.html"},
+  {"hindi":"हर बात हर व्यक्ति से साझा करना आवश्यक नहीं।","english":"Not every plan needs to be shared before it is ready.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 2, verse 7","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-second-chapter.html"},
+  {"hindi":"हर पर्वत पर मणि और हर वन में चंदन नहीं मिलता।","english":"Rarity is real: not every mountain holds a gem or every forest a sandalwood tree.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 2, verse 9","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-second-chapter.html"},
+  {"hindi":"ज्ञान और सदाचार से व्यक्ति अपने परिवार का गौरव बनता है।","english":"Learning and good conduct can bring honor to a family.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 2, verse 10","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-second-chapter.html"},
+  {"hindi":"हर दिन कुछ सीखें, अभ्यास करें या कोई अच्छा काम करें।","english":"Let each day include a little learning, practice, or kind action.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 2, verse 13","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-second-chapter.html"},
+  {"hindi":"परिवार की पहचान उसके सदस्यों के आचरण से होती है।","english":"A family is known by the conduct of its members.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 3, verse 2","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-third-chapter.html"},
+  {"hindi":"ज्ञान के बिना बाहरी सुंदरता अधूरी है।","english":"Outward distinction is incomplete without learning.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 3, verse 8","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-third-chapter.html"},
+  {"hindi":"क्षमा में भी एक अलग प्रकार की सुंदरता होती है।","english":"There is a particular kind of beauty in forgiveness.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 3, verse 9","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-third-chapter.html"},
+  {"hindi":"उद्यमी व्यक्ति के लिए अवसरों की कमी नहीं होती।","english":"For a person who keeps working, few places are truly out of reach.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 3, verse 11","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-third-chapter.html"},
+  {"hindi":"मधुर वाणी अनावश्यक शत्रुता को कम कर सकती है।","english":"Considerate speech can keep needless hostility at bay.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 3, verse 13","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-third-chapter.html"},
+  {"hindi":"एक गुणवान व्यक्ति भी पूरे परिवार को गौरवान्वित कर सकता है।","english":"One person of good character can bring honor to an entire family.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 3, verse 14","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-third-chapter.html"},
+  {"hindi":"कठिन समय में धैर्य और सज्जनता बनाए रखना बड़ी शक्ति है।","english":"Keeping your composure through hardship is a quiet strength.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 3, verse 6","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-third-chapter.html"},
+  {"hindi":"जीवन में हर किसी को कभी न कभी कठिनाई आती है।","english":"No family is untouched by difficulty, and no one is happy at every moment.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 3, verse 1","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-third-chapter.html"},
+  {"hindi":"विद्या हर परिस्थिति में साथ देने वाला संचित धन है।","english":"Learning is a store of wealth that travels with you.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 4","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-fourth-chapter.html"},
+  {"hindi":"सही समय, सही मित्र और सही स्थान पर बार-बार विचार करें।","english":"Think carefully about timing, company, place, and how you use your resources.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 4","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-fourth-chapter.html"},
+  {"hindi":"सुनना समझ, ज्ञान और द्वेष से मुक्ति का मार्ग खोलता है।","english":"Listening can bring understanding, knowledge, and freedom from resentment.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 6","sourceUrl":"https://www.hindisahityadarpan.in/2011/11/chanakya-neeti-in-hindi-sixth-chapter.html"},
+  {"hindi":"अध्ययन, साधना और उदारता ऐसे अभ्यास हैं जिनमें ठहरना नहीं चाहिए।","english":"Study, reflection, and generosity are practices worth continuing.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 7","sourceUrl":"https://www.hindisahityadarpan.in/2011/11/chanakya-neeti-in-hindi-seventh-chapter.html"},
+  {"hindi":"संतुलित मन तप है; संतोष सुख है; करुणा गुण है।","english":"A balanced mind is discipline, contentment is happiness, and compassion is virtue.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 8","sourceUrl":"https://www.hindisahityadarpan.in/2011/11/chanakya-neeti-hindi-translation.html"},
+  {"hindi":"सत्य की शक्ति पर यह संसार टिका है।","english":"The world rests on the strength of truth.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 5","sourceUrl":"https://www.hindisahityadarpan.in/2011/11/chanakya-neeti-in-hindi-fifth-chapter.html"},
+  {"hindi":"व्यक्ति को उसके त्याग, आचरण, गुण और कर्म से परखें।","english":"Judge a person by their generosity, conduct, qualities, and actions.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 5","sourceUrl":"https://www.hindisahityadarpan.in/2011/11/chanakya-neeti-in-hindi-fifth-chapter.html"},
+  {"hindi":"सच्चा साथ वही है जो आरंभ से अंत तक बना रहे।","english":"Reliable companions remain present from beginning to end.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 3, verse 5","sourceUrl":"https://www.hindisahityadarpan.in/2011/10/chanakya-neeti-in-hindi-third-chapter.html"},
+  {"hindi":"समझदारी से सोचकर किया गया कर्म बेहतर फल देता है।","english":"Thoughtful action is wiser than acting without reflection.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 13","sourceUrl":"https://www.hindisahityadarpan.in/2011/12/chananakya-neeti-chapter-13.html"},
+  {"hindi":"मीठे वचन, अन्न और जल—यही धरती के सच्चे रत्न हैं।","english":"Kind words, food, and water are among life’s true treasures.","work":"Chanakya Neeti","creator":"Traditionally attributed to Chanakya","location":"Chapter 13","sourceUrl":"https://www.hindisahityadarpan.in/2011/12/chananakya-neeti-chapter-13.html"}
 ]
