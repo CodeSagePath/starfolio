@@ -38,6 +38,11 @@ const personJsonLd = {
   url: DATA.url,
   image: `${CONFIG.site.url}${DATA.avatarUrl}`,
   jobTitle: "Software Engineer",
+  brand: {
+    "@type": "Brand",
+    name: CONFIG.site.name,
+    url: `${CONFIG.site.url}/`,
+  },
   sameAs: Object.values(DATA.contact.social)
     .map((social) => social.url)
     .filter((url) => url.startsWith("http")),

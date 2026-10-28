@@ -23,7 +23,7 @@ export const CONFIG = {
   // SEO Settings
   // ---------------------------------------------------------------------------
   seo: {
-    homeTitle: "Rishi Garg — Software Engineer building AI, Flutter & backend products",
+    homeTitle: "Rishi Garg | CodeSagePath — Software Engineer",
     titleTemplate: "%s | CodeSagePath", // %s = page title
     twitterCard: "summary_large_image" as const,
     robots: "index, follow",

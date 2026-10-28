@@ -1,5 +1,4 @@
 // @ts-check
-import { copyFile } from 'node:fs/promises';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
@@ -19,16 +18,6 @@ const prettyCodeOptions = {
   keepBackground: false,
 };
 
-/** @type {import('astro').AstroIntegration} */
-const sitemapXmlAlias = {
-  name: 'codesagepath-sitemap-xml-alias',
-  hooks: {
-    'astro:build:done': async ({ dir }) => {
-      await copyFile(new URL('sitemap-index.xml', dir), new URL('sitemap.xml', dir));
-    },
-  },
-};
-
 // https://astro.build/config
 export default defineConfig({
   site: CONFIG.site.url,
@@ -46,7 +35,6 @@ export default defineConfig({
       syntaxHighlight: false,
     }),
     sitemap(),
-    sitemapXmlAlias,
   ],
 
   markdown: {
