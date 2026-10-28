@@ -6,8 +6,8 @@ import { DATA } from "@/data/resume";
 import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
 import HackathonsSection from "@/components/section/hackathons-section";
-import PhotosSection from "@/components/section/photos-section";
 import ProjectsSection from "@/components/section/projects-section";
+import PhotosSection from "@/components/section/photos-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 
@@ -164,7 +164,6 @@ export default function HomePage() {
                   className="inline-flex w-fit items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   View resume
-                  <ArrowUpRight className="size-4" aria-hidden />
                 </a>
               </BlurFade>
             </div>

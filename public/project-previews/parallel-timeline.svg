@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="96" y1="30" x2="1100" y2="675" gradientUnits="userSpaceOnUse"><stop stop-color="#0D1525"/><stop offset="1" stop-color="#17243B"/></linearGradient>
+    <linearGradient id="plan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66D4F4"/><stop offset="1" stop-color="#538BFF"/></linearGradient>
+    <linearGradient id="actual" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B48AFF"/><stop offset="1" stop-color="#F17CC5"/></linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="url(#bg)"/>
+  <text x="72" y="82" fill="#F5F7FC" font-family="Inter,Arial,sans-serif" font-size="31" font-weight="650">Parallel Timeline</text>
+  <text x="72" y="119" fill="#91A1BC" font-family="Inter,Arial,sans-serif" font-size="17">A clearer view of plan versus reality</text>
+  <rect x="72" y="154" width="1056" height="444" rx="20" fill="#101A2C" stroke="#31415C"/>
+  <text x="104" y="207" fill="#AAB8CF" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">PLANNED</text>
+  <text x="620" y="207" fill="#AAB8CF" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600">ACTUAL</text>
+  <path d="M590 178v370" stroke="#31415C" stroke-dasharray="5 8"/>
+  <path d="M104 254h440M104 374h440M104 494h440M624 254h472M624 374h472M624 494h472" stroke="#26364F"/>
+  <g fill="#7F90AA" font-family="Inter,Arial,sans-serif" font-size="13"><text x="104" y="574">08:00</text><text x="305" y="574">10:00</text><text x="489" y="574">12:00</text><text x="624" y="574">08:00</text><text x="842" y="574">10:00</text><text x="1044" y="574">12:00</text></g>
+  <path d="M168 302h164a16 16 0 0 1 16 16v34H152v-34a16 16 0 0 1 16-16Z" fill="url(#plan)"/>
+  <text x="172" y="328" fill="#071323" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="700">AI research brief</text>
+  <text x="172" y="347" fill="#10223B" font-family="Inter,Arial,sans-serif" font-size="13">08:30 – 10:00</text>
+  <path d="M762 422h137a16 16 0 0 1 16 16v34H746v-34a16 16 0 0 1 16-16Z" fill="url(#actual)"/>
+  <text x="762" y="448" fill="#23152B" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700">Prompt iteration</text>
+  <text x="762" y="467" fill="#35213A" font-family="Inter,Arial,sans-serif" font-size="13">10:15 – 11:30</text>
+  <circle cx="254" cy="482" r="8" fill="#72D8F1"/><circle cx="855" cy="282" r="8" fill="#D7A1F8"/>
+</svg>

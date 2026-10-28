@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse"><stop stop-color="#101821"/><stop offset="1" stop-color="#192831"/></linearGradient><linearGradient id="accent" x1="240" y1="120" x2="970" y2="590" gradientUnits="userSpaceOnUse"><stop stop-color="#5DD6B0"/><stop offset="1" stop-color="#4DA5D9"/></linearGradient></defs>
+  <rect width="1200" height="675" rx="28" fill="url(#bg)"/>
+  <text x="72" y="82" fill="#F2F8F6" font-family="Inter,Arial,sans-serif" font-size="31" font-weight="650">secure_nonce</text>
+  <text x="72" y="119" fill="#9CB2B1" font-family="Inter,Arial,sans-serif" font-size="17">Cryptographically secure random values for Dart</text>
+  <rect x="72" y="160" width="1056" height="438" rx="20" fill="#0D151D" stroke="#34474B"/>
+  <circle cx="105" cy="195" r="7" fill="#F07878"/><circle cx="130" cy="195" r="7" fill="#EBC46F"/><circle cx="155" cy="195" r="7" fill="#67C99B"/>
+  <g font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="19">
+    <text x="112" y="267" fill="#7C93A1">// Generate a secure token</text>
+    <text x="112" y="314" fill="#C792EA">final</text><text x="172" y="314" fill="#E5EEF1"> token = SecureNonce.generate(length: 32);</text>
+    <text x="112" y="361" fill="#7C93A1">// URL-safe encoding for links</text>
+    <text x="112" y="408" fill="#C792EA">final</text><text x="172" y="408" fill="#E5EEF1"> invite = SecureNonce.generateBase64Url();</text>
+    <text x="112" y="455" fill="#7C93A1">// Raw bytes for cryptographic workflows</text>
+    <text x="112" y="502" fill="#C792EA">final</text><text x="172" y="502" fill="#E5EEF1"> bytes = SecureNonce.generateBytes(16);</text>
+  </g>
+  <rect x="878" y="544" width="207" height="30" rx="15" fill="#163B37"/><circle cx="897" cy="559" r="5" fill="url(#accent)"/><text x="912" y="564" fill="#9DE5CA" font-family="Inter,Arial,sans-serif" font-size="13">Uses Random.secure()</text>
+</svg>

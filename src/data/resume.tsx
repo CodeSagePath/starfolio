@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { BookOpen, House } from "lucide-react";
+import { BookOpen, House, Images } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
 import { Docker } from "@/components/ui/svgs/docker";
@@ -35,16 +35,26 @@ export interface ProjectItem {
     icon: React.ReactNode;
   }[];
   image?: string;
+  imageAlt?: string;
+  imageFit?: "cover" | "contain";
+  previews?: readonly {
+    src: string;
+    alt: string;
+  }[];
   video?: string;
 }
 
-interface Photo {
+export interface Photo {
   src: string;
   alt: string;
 }
 
-interface PhotoCollection {
+export interface PhotoCollection {
+  slug: string;
   title: string;
+  location: string;
+  date: string;
+  coverImage: string;
   photos: readonly Photo[];
 }
 
@@ -60,7 +70,7 @@ export const DATA = {
     "I build end-to-end software with a focus on thoughtful product engineering: **AI systems, mobile apps, backend services, and reusable Flutter packages**. My work ranges from a multi-tenant RAG SaaS platform and self-hosted routing infrastructure to local-first notes and developer-focused open-source libraries.",
   avatarUrl: "/picofme.png",
   ogImage: "/og_image.png",
-  resumeUrl: "https://files.codesagepath.dev/f/Rishi_Garg.pdf",
+  resumeUrl: "https://files.codesagepath.dev/e/Rishi_Garg.pdf",
   sections: {
     about: { order: 1, enabled: true, heading: "What I build" },
     work: { order: 2, enabled: false, heading: "Work Experience", presentLabel: "Present" },
@@ -80,7 +90,7 @@ export const DATA = {
     },
     photos: {
       order: 6, enabled: true,
-      heading: "Things I notice",
+      heading: "Photography",
     },
     contact: {
       order: 8, enabled: true,
@@ -91,23 +101,27 @@ export const DATA = {
   },
   photoCollections: [
     {
+      slug: "lalbagh-in-bloom-2026-10-24",
       title: "Lalbagh in bloom",
+      location: "Lalbagh Botanical Garden, Bengaluru",
+      date: "2026-10-24",
+      coverImage: "/photos/lalbagh-01.jpg",
       photos: [
-        { src: "/photos/lalbagh/lalbagh-01.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-02.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-03.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-04.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-05.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-06.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-07.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-08.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-09.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-10.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-11.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-12.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-13.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-14.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
-        { src: "/photos/lalbagh/lalbagh-15.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-01.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-02.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-03.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-04.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-05.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-06.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-07.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-08.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-09.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-10.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-11.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-12.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-13.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-14.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
+        { src: "/photos/lalbagh-15.jpg", alt: "Flower photographed at Lalbagh Botanical Garden, Bengaluru" },
       ],
     },
   ] as const satisfies readonly PhotoCollection[],
@@ -137,6 +151,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: House, label: "Home" },
+    { href: "/photography/", icon: Images, label: "Photography" },
     { href: "/blog", icon: BookOpen, label: "Blog" },
   ],
   contact: {
@@ -217,6 +232,8 @@ export const DATA = {
     {
       title: "AskZentic",
       href: "https://askzentic.com",
+      image: "/project-previews/askzentic.webp",
+      imageAlt: "AskZentic customer support portal answering a product setup question",
       dates: "2026 — Present",
       active: true,
       description:
@@ -240,6 +257,8 @@ export const DATA = {
     {
       title: "AnantYatra",
       href: "https://anantyatra.codesagepath.dev/",
+      image: "/project-previews/anantyatra.webp",
+      imageAlt: "AnantYatra route planner over a map of India and South Asia",
       dates: "2026",
       active: true,
       description:
@@ -264,6 +283,8 @@ export const DATA = {
     {
       title: "Whisper Kit",
       href: "https://github.com/CodeSagePath/whisper_kit",
+      image: "/project-previews/whisper-kit.svg",
+      imageAlt: "Whisper Kit workflow: local audio input, on-device whisper.cpp transcription, and text output",
       dates: "2025 — Present",
       active: true,
       description:
@@ -287,6 +308,8 @@ export const DATA = {
     {
       title: "Parallel Timeline",
       href: "https://github.com/CodeSagePath/parallel_timeline",
+      image: "/project-previews/parallel-timeline.svg",
+      imageAlt: "Dual-column timeline comparing planned and actual event times",
       dates: "2026",
       active: false,
       description:
@@ -299,6 +322,8 @@ export const DATA = {
     {
       title: "Secure Nonce",
       href: "https://github.com/CodeSagePath/secure_nonce",
+      image: "/project-previews/secure-nonce.svg",
+      imageAlt: "SecureNonce Dart example generating hex, byte, and URL-safe token values",
       dates: "2025 — Present",
       active: true,
       description:
@@ -311,6 +336,9 @@ export const DATA = {
     {
       title: "VividNotes",
       href: "https://play.google.com/store/apps/details?id=net.codesagepath.colornote&pcampaignid=web_share",
+      image: "/project-previews/vividnotes-icon.webp",
+      imageAlt: "VividNotes app icon",
+      imageFit: "contain",
       dates: "2024 — Present",
       active: true,
       description:

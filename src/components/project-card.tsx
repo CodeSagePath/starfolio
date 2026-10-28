@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import Markdown from "react-markdown";
 
-function ProjectImage({ src, alt }: { src: string; alt: string }) {
+function ProjectImage({ src, alt, fit = "cover" }: { src: string; alt: string; fit?: "cover" | "contain" }) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
@@ -17,7 +17,9 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
     <img
       src={src}
       alt={alt}
-      className="w-full h-48 object-cover"
+      loading="lazy"
+      decoding="async"
+      className={cn("h-48 w-full", fit === "contain" ? "bg-muted object-contain p-5" : "object-cover")}
       onError={() => setImageError(true)}
     />
   );
@@ -50,6 +52,9 @@ interface Props {
   dates: string;
   tags: readonly string[];
   image?: string;
+  imageAlt?: string;
+  imageFit?: "cover" | "contain";
+  previews?: readonly { src: string; alt: string }[];
   video?: string;
   detailsHref?: string;
   links?: readonly {
@@ -67,6 +72,9 @@ export function ProjectCard({
   dates,
   tags,
   image,
+  imageAlt,
+  imageFit,
+  previews,
   video,
   detailsHref,
   links,
@@ -84,8 +92,16 @@ export function ProjectCard({
           <a href={href} target="_blank" rel="noopener noreferrer" className="block">
             {video ? (
               <video src={video} autoPlay loop muted playsInline className="w-full h-48 object-cover" />
+            ) : previews?.length ? (
+              <div className="grid h-48 grid-cols-2 gap-px bg-border">
+                {previews.map((preview) => (
+                  <div key={preview.src} className="flex min-w-0 items-center justify-center overflow-hidden bg-muted/70 p-2">
+                    <img src={preview.src} alt={preview.alt} loading="lazy" decoding="async" className="h-full w-full object-contain" />
+                  </div>
+                ))}
+              </div>
             ) : image ? (
-              <ProjectImage src={image} alt={title} />
+              <ProjectImage src={image} alt={imageAlt ?? `${title} project preview`} fit={imageFit} />
             ) : (
               <ProjectCover title={title} />
             )}

@@ -1,44 +1,60 @@
-import BlurFade from "@/components/magicui/blur-fade";
+import { ArrowRight } from "lucide-react";
 import { DATA } from "@/data/resume";
 
-const BLUR_FADE_DELAY = 0.04;
+function formatCollectionDate(date: string) {
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${date}T00:00:00Z`));
+}
 
 export default function PhotosSection() {
+  const collections = [...DATA.photoCollections]
+    .sort((first, second) => second.date.localeCompare(first.date))
+    .slice(0, 3);
+
   return (
-    <section id="photos">
-      <div className="flex min-h-0 flex-col gap-y-4">
-        <div className="flex items-center w-full">
-          <div className="flex-1 h-px bg-linear-to-r from-transparent from-5% via-border via-95% to-transparent" />
-          <div className="border bg-primary z-10 rounded-xl px-4 py-1">
-            <span className="text-background text-sm font-medium">Photography</span>
+    <section id="photos" aria-labelledby="photography-heading">
+      <div className="flex min-h-0 flex-col gap-y-5">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="mb-2 text-sm font-medium text-primary">Beyond the screen</p>
+            <h2 id="photography-heading" className="text-2xl font-bold tracking-tight sm:text-3xl">
+              {DATA.sections.photos.heading}
+            </h2>
           </div>
-          <div className="flex-1 h-px bg-linear-to-l from-transparent from-5% via-border via-95% to-transparent" />
+          <a href="/photography/" className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+            All collections <ArrowRight className="size-4" aria-hidden />
+          </a>
         </div>
-        <div className="flex flex-col gap-y-3 items-center justify-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{DATA.sections.photos.heading}</h2>
+        <div className="flex snap-x gap-4 overflow-x-auto pb-2">
+          {collections.map((collection) => (
+            <a
+              key={collection.slug}
+              href={`/photography/${collection.slug}/`}
+              className="group min-w-[min(82vw,22rem)] snap-start overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-primary/40 sm:min-w-[20rem]"
+            >
+              <img
+                src={collection.coverImage}
+                alt={`${collection.title} photo collection cover`}
+                loading="lazy"
+                decoding="async"
+                className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+              <div className="flex items-start justify-between gap-3 p-4">
+                <div>
+                  <h3 className="font-semibold group-hover:text-primary">{collection.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{collection.location} · {formatCollectionDate(collection.date)}</p>
+                </div>
+                <span className="shrink-0 rounded-full bg-muted px-2.5 py-1 text-xs text-muted-foreground">
+                  {collection.photos.length} photos
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
-        {DATA.photoCollections.map((collection, collectionIndex) => (
-          <div key={collection.title} className="flex flex-col gap-y-4">
-            <h3 className="text-center text-lg font-medium text-muted-foreground">{collection.title}</h3>
-            <div className="columns-2 gap-2 sm:columns-3">
-              {collection.photos.map((photo, photoIndex) => (
-                <BlurFade
-                  key={photo.src}
-                  delay={BLUR_FADE_DELAY * 14 + (collectionIndex * collection.photos.length + photoIndex) * 0.05}
-                  className="mb-2 break-inside-avoid"
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full rounded-xl"
-                  />
-                </BlurFade>
-              ))}
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );

@@ -24,6 +24,9 @@ export default function ProjectsSection() {
         description: project.description,
         technologies: project.technologies,
         image: project.image,
+        imageAlt: project.imageAlt,
+        imageFit: project.imageFit,
+        previews: project.previews,
         video: project.video,
         links: project.links,
         detailsHref: `/projects/${slugify(project.title)}`,
@@ -69,7 +72,7 @@ export default function ProjectsSection() {
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 max-w-6xl mx-auto auto-rows-fr">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 max-w-6xl mx-auto auto-rows-auto md:auto-rows-fr">
                     {allProjects.map((project, id) => (
                         <BlurFade
                             key={project.title}
@@ -84,6 +87,9 @@ export default function ProjectsSection() {
                                 dates={project.dates}
                                 tags={project.technologies}
                                 image={project.image}
+                                imageAlt={project.imageAlt}
+                                imageFit={project.imageFit}
+                                previews={project.previews}
                                 video={project.video}
                                 links={project.links}
                                 detailsHref={project.detailsHref}

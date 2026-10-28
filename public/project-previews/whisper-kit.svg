@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101326"/><stop offset="1" stop-color="#241638"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="168" y1="0" x2="1043" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA"/><stop offset=".52" stop-color="#F472B6"/><stop offset="1" stop-color="#FB923C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="url(#background)"/>
+  <circle cx="1062" cy="106" r="190" fill="#7C3AED" fill-opacity=".12"/>
+  <circle cx="1110" cy="582" r="220" fill="#EC4899" fill-opacity=".08"/>
+  <text x="76" y="92" fill="#F8F7FF" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="700">Whisper Kit</text>
+  <text x="76" y="131" fill="#B7B4CB" font-family="Inter,Arial,sans-serif" font-size="19">On-device speech-to-text for Flutter</text>
+  <rect x="76" y="188" width="1048" height="393" rx="24" fill="#171A2D" stroke="#3D3655" stroke-width="2"/>
+  <g transform="translate(131 267)">
+    <rect width="226" height="207" rx="18" fill="#20233A" stroke="#51456E"/>
+    <circle cx="113" cy="76" r="42" fill="#322754"/>
+    <rect x="103" y="47" width="20" height="58" rx="10" fill="#C4B5FD"/>
+    <path d="M88 79a25 25 0 0 0 50 0M113 105v17m-20 0h40" stroke="#C4B5FD" stroke-width="5" stroke-linecap="round"/>
+    <text x="113" y="160" text-anchor="middle" fill="#F1EDFF" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600">Audio input</text>
+    <text x="113" y="184" text-anchor="middle" fill="#A9A5BD" font-family="Inter,Arial,sans-serif" font-size="13">Local recording or file</text>
+  </g>
+  <path d="M385 371h74m-12-12 12 12-12 12" stroke="#8E83AD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(487 267)">
+    <rect width="226" height="207" rx="18" fill="#24203B" stroke="#7659A8"/>
+    <circle cx="113" cy="76" r="42" fill="#392A5B"/>
+    <path d="M88 76h10l8-17 14 35 10-23 7 5h13" stroke="url(#wave)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="113" y="160" text-anchor="middle" fill="#F1EDFF" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600">Whisper model</text>
+    <text x="113" y="184" text-anchor="middle" fill="#B9A9D5" font-family="Inter,Arial,sans-serif" font-size="13">whisper.cpp · on device</text>
+  </g>
+  <path d="M741 371h74m-12-12 12 12-12 12" stroke="#8E83AD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(843 267)">
+    <rect width="226" height="207" rx="18" fill="#20233A" stroke="#51456E"/>
+    <circle cx="113" cy="76" r="42" fill="#322754"/>
+    <path d="M94 64h38m-38 14h38m-38 14h26" stroke="#F0ABFC" stroke-width="5" stroke-linecap="round"/>
+    <text x="113" y="160" text-anchor="middle" fill="#F1EDFF" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600">Transcript</text>
+    <text x="113" y="184" text-anchor="middle" fill="#A9A5BD" font-family="Inter,Arial,sans-serif" font-size="13">Text with timestamps</text>
+  </g>
+  <path d="M150 523h900" stroke="#38324D" stroke-width="2"/>
+  <text x="600" y="553" text-anchor="middle" fill="#C9C0DE" font-family="Inter,Arial,sans-serif" font-size="15">Private, offline transcription after model download</text>
+</svg>

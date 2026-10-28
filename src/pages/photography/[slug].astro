@@ -1,0 +1,32 @@
+---
+export const prerender = true;
+import Layout from "@/layouts/Layout.astro";
+import { DATA } from "@/data/resume";
+
+export function getStaticPaths() {
+  return DATA.photoCollections.map((collection) => ({ params: { slug: collection.slug }, props: { collection } }));
+}
+
+const { collection } = Astro.props;
+const formatDate = new Intl.DateTimeFormat("en", {
+  month: "long", day: "numeric", year: "numeric", timeZone: "UTC",
+}).format(new Date(`${collection.date}T00:00:00Z`));
+---
+
+<Layout title={collection.title} description={`${collection.photos.length} photographs from ${collection.location}.`}>
+  <main class="mx-auto min-h-dvh w-full max-w-5xl">
+    <a href="/photography/" class="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">← All collections</a>
+    <header class="mb-8">
+      <p class="mb-2 text-sm font-medium text-primary">{collection.location} · {formatDate}</p>
+      <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{collection.title}</h1>
+      <p class="mt-3 text-muted-foreground">{collection.photos.length} photographs</p>
+    </header>
+    <div class="columns-2 gap-3 sm:columns-3 sm:gap-4">
+      {collection.photos.map((photo, index) => (
+        <a href={photo.src} target="_blank" rel="noreferrer" aria-label={`Open full-size photo ${index + 1}`} class="mb-3 block break-inside-avoid overflow-hidden rounded-xl bg-muted sm:mb-4">
+          <img src={photo.src} alt={photo.alt} loading={index < 3 ? "eager" : "lazy"} decoding="async" class="h-auto w-full transition-opacity hover:opacity-90" />
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>

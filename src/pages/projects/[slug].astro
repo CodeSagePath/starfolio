@@ -60,7 +60,12 @@ const jsonLd = JSON.stringify({
       <p class="mt-2 text-sm text-muted-foreground">{project.dates}</p>
     </header>
 
-    {project.image && <img src={project.image} alt={`${project.title} project`} class="mb-8 max-h-[32rem] w-full rounded-xl border border-border object-cover" />}
+    {project.image && <img src={project.image} alt={project.imageAlt ?? `${project.title} project preview`} loading="lazy" decoding="async" class:list={["mb-8 max-h-[32rem] w-full rounded-xl border border-border", project.imageFit === "contain" ? "bg-muted object-contain p-6" : "object-cover"]} />}
+    {project.previews?.length ? (
+      <div class="mb-8 grid grid-cols-2 gap-3 sm:gap-5">
+        {project.previews.map((preview) => <img src={preview.src} alt={preview.alt} loading="lazy" decoding="async" class="max-h-[34rem] w-full rounded-xl border border-border bg-muted/50 object-contain p-2" />)}
+      </div>
+    ) : null}
     {project.video && <video src={project.video} controls playsinline class="mb-8 max-h-[32rem] w-full rounded-xl border border-border" />}
 
     <section aria-labelledby="project-overview">
