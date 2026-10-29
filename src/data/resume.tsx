@@ -329,6 +329,7 @@ export const DATA = {
       technologies: ["Flutter", "Dart", "C++", "whisper.cpp", "Android", "iOS"],
       links: [
         { type: "GitHub", href: "https://github.com/CodeSagePath/whisper_kit", icon: <Icons.github className="size-3" /> },
+        { type: "pub.dev", href: "https://pub.dev/packages/whisper_kit", icon: <Icons.globe className="size-3" /> },
       ],
     },
     {
@@ -343,6 +344,7 @@ export const DATA = {
       technologies: ["Flutter", "Dart", "CustomPainter", "Widget testing"],
       links: [
         { type: "GitHub", href: "https://github.com/CodeSagePath/parallel_timeline", icon: <Icons.github className="size-3" /> },
+        { type: "pub.dev", href: "https://pub.dev/packages/parallel_timeline", icon: <Icons.globe className="size-3" /> },
       ],
     },
     {
@@ -357,6 +359,7 @@ export const DATA = {
       technologies: ["Dart", "Flutter", "Cryptography", "Testing"],
       links: [
         { type: "GitHub", href: "https://github.com/CodeSagePath/secure_nonce", icon: <Icons.github className="size-3" /> },
+        { type: "pub.dev", href: "https://pub.dev/packages/secure_nonce", icon: <Icons.globe className="size-3" /> },
       ],
     },
     {
