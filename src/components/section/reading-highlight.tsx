@@ -28,7 +28,7 @@ export default function ReadingHighlight() {
           <p lang="en" className="text-muted-foreground leading-relaxed">{highlight.english}</p>
         </blockquote>
         <p className="mt-5 text-sm font-medium">{highlight.work} <span className="text-muted-foreground">· {highlight.creator}</span></p>
-        <p className="mt-1 text-xs text-muted-foreground">{highlight.location} · Concise Hindi and English renderings</p>
+        <p className="mt-1 text-xs text-muted-foreground">{highlight.location}</p>
         {/* TODO: Add Rishi's personal reflection after he writes one for each passage. */}
       </div>
     </section>

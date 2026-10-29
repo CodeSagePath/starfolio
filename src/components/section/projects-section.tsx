@@ -65,9 +65,11 @@ export default function ProjectsSection() {
                             className="flex-1 h-px bg-linear-to-l from-transparent from-5% via-border via-95% to-transparent"
                         />
                     </div>
-                    <div className="flex flex-col gap-y-3 items-center justify-center">
-                        <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl">{DATA.sections.projects.heading}</h2>
-                        <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed text-balance text-center">
+                    <div className="flex w-full flex-col gap-y-3 items-start justify-center sm:items-center">
+                        <h2 className="w-full self-stretch text-3xl font-bold tracking-tighter text-left sm:text-center sm:text-4xl">
+                            {DATA.sections.projects.heading}
+                        </h2>
+                        <p className="w-full self-stretch text-muted-foreground text-left md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed sm:text-center">
                             {DATA.sections.projects.text}
                         </p>
                     </div>

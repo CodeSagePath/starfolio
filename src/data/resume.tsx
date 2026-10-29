@@ -80,8 +80,8 @@ export const DATA = {
     projects: {
       order: 2, enabled: true,
       label: "Selected work",
-      heading: "Things I have taken from idea to implementation",
-      text: "A selection of product work, infrastructure, and open-source packages. Each project reflects a different engineering problem worth solving.",
+      heading: "From idea to implementation",
+      text: "Products, infrastructure, and open-source tools built to solve real engineering problems.",
     },
     hackathons: {
       order: 7, enabled: false,
@@ -219,6 +219,13 @@ export const DATA = {
 
   work: [] as WorkItem[],
   education: [
+    {
+      school: "DCT Academy",
+      degree: "Full Stack Software Development Program",
+      logoUrl: "/dct-academy-logo.png",
+      start: "2026",
+      end: "Present",
+    },
     {
       school: "PES University",
       href: "https://pes.edu",
